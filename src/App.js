@@ -56,7 +56,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchResult();
+    if (this.state.searchTerm) {
+      this.fetchResult();
+    }
   }
 
   render() {

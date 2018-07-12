@@ -35,7 +35,9 @@ export default ({ data }) => {
           {message}
         </div>
       </div>
-      {table}
+      <div className="table-wrapper">
+        {table}
+      </div>
     </div>
   )
 }
