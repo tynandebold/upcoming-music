@@ -68,7 +68,7 @@ class App extends React.Component {
     }
 
     return (
-      <div>
+      <React.Fragment>
         <h1>Upcoming Music</h1>
         <Form
           submitForm={this.handleSubmit}
@@ -76,7 +76,7 @@ class App extends React.Component {
           updateInput={this.handleChange} />
         {this.state.foundArtist && <ArtistDetails data={this.state} /> }
         {message}
-      </div>
+      </React.Fragment>
     )
   }
 }

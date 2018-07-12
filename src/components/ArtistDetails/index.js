@@ -17,7 +17,7 @@ export default ({ data }) => {
   }
 
   return (
-    <div>
+    <React.Fragment>
       <div className="artist-details">
         <img
           className="artist-image"
@@ -36,9 +36,7 @@ export default ({ data }) => {
           {message}
         </div>
       </div>
-      <div className="table-wrapper">
-        {table}
-      </div>
-    </div>
+      {table}
+    </React.Fragment>
   )
 }
