@@ -24,13 +24,17 @@ class App extends React.Component {
     this.setState({searchTerm: e.target.value});
   }
 
-  handleSubmit = async (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
 
     if (this.state.searchTerm.length === 0) {
       return;
     }
 
+    this.fetchResult();
+  }
+
+  async fetchResult() {
     const res = await fetch(`https://rest.bandsintown.com/artists/${this.state.searchTerm}?app_id=asdf`);
     const json = await res.json();
 
@@ -52,7 +56,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // this.handleSubmit(e);
+    this.fetchResult();
   }
 
   render() {
