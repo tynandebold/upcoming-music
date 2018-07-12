@@ -20,6 +20,7 @@ export default ({ data }) => {
     <div>
       <div className="artist-details">
         <img
+          className="artist-image"
           src={data.artistInfo.thumb_url}
           alt={data.artistInfo.name}
           />

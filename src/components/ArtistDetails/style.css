@@ -4,6 +4,13 @@
   margin-bottom: 24px;
 }
 
+
+@media (max-width: 600px) {
+  .artist-image {
+    max-width: 50%;
+  }
+}
+
 .artist-details__top-level {
   margin-left: 24px;
 }
