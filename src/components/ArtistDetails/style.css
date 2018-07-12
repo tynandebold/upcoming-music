@@ -1,0 +1,18 @@
+.artist-details {
+  align-items: center;
+  display: flex;
+  margin-bottom: 24px;
+}
+
+.artist-details__top-level {
+  margin-left: 24px;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+a:hover {
+  font-style: italic;
+}
