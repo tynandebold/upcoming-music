@@ -23,7 +23,7 @@ export default ({ data }) => {
           className="artist-image"
           src={data.artistInfo.thumb_url}
           alt={data.artistInfo.name}
-          />
+        />
         <div className="artist-details__top-level">
           <h2>{data.artistInfo.name}</h2>
           {data.artistInfo.facebook_page_url &&

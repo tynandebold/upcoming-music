@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   handleChange = (e) => {
-    this.setState({searchTerm: e.target.value});
+    this.setState({ searchTerm: e.target.value });
   }
 
   handleSubmit = (e) => {
@@ -51,7 +51,7 @@ class App extends React.Component {
 
       window.localStorage.setItem('searchTerm', this.state.searchTerm);
     } else {
-      this.setState({foundArtist: false});
+      this.setState({ foundArtist: false });
     }
   }
 
@@ -74,7 +74,7 @@ class App extends React.Component {
           submitForm={this.handleSubmit}
           searchTerm={this.state.searchTerm}
           updateInput={this.handleChange} />
-        {this.state.foundArtist && <ArtistDetails data={this.state} /> }
+        {this.state.foundArtist && <ArtistDetails data={this.state} />}
         {message}
       </React.Fragment>
     )
