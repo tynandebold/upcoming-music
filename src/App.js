@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor() {
     super();
 
-    const prevSearchTerm = window.localStorage.getItem('searchTerm');
+    const prevSearchTerm = window.localStorage.getItem('searchTerm') || '';
 
     this.state = {
       artistEvents: null,
