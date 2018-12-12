@@ -27,6 +27,10 @@ td {
   padding: 10px 10px 8px;
 }
 
+tbody tr td:last-of-type {
+  min-width: 100px;
+}
+
 @media (max-width: 600px) {
   table tr th:nth-child(3),
   table tr td:nth-child(3) {

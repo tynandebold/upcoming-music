@@ -29,6 +29,7 @@ export default ({ data }) => {
           {data.artistInfo.facebook_page_url &&
             <a
               href={data.artistInfo.facebook_page_url}
+              rel="noopener noreferrer"
               target="_blank">
               {data.artistInfo.name}&#39;s Facebook page
             </a>
