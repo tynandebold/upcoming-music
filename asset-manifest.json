@@ -1,6 +1,13 @@
 {
-  "main.css": "static/css/main.83920a2e.css",
-  "main.css.map": "static/css/main.83920a2e.css.map",
-  "main.js": "static/js/main.1251f014.js",
-  "main.js.map": "static/js/main.1251f014.js.map"
+  "main.css": "/upcoming-music/static/css/main.ed6eba7f.chunk.css",
+  "main.js": "/upcoming-music/static/js/main.4b1c40cd.chunk.js",
+  "main.js.map": "/upcoming-music/static/js/main.4b1c40cd.chunk.js.map",
+  "static/js/1.85fc0108.chunk.js": "/upcoming-music/static/js/1.85fc0108.chunk.js",
+  "static/js/1.85fc0108.chunk.js.map": "/upcoming-music/static/js/1.85fc0108.chunk.js.map",
+  "runtime~main.js": "/upcoming-music/static/js/runtime~main.e4beb3b1.js",
+  "runtime~main.js.map": "/upcoming-music/static/js/runtime~main.e4beb3b1.js.map",
+  "static/css/main.ed6eba7f.chunk.css.map": "/upcoming-music/static/css/main.ed6eba7f.chunk.css.map",
+  "index.html": "/upcoming-music/index.html",
+  "precache-manifest.231fffd88980bd590b59d501d825ef49.js": "/upcoming-music/precache-manifest.231fffd88980bd590b59d501d825ef49.js",
+  "service-worker.js": "/upcoming-music/service-worker.js"
 }
