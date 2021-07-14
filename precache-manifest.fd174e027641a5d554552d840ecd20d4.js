@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "321c7bdd5b0979c97ac7",
-    "url": "/upcoming-music/static/css/main.28828581.chunk.css"
+    "revision": "d30ba58e29ada7cd3452",
+    "url": "/upcoming-music/static/css/main.b54bf051.chunk.css"
   },
   {
-    "revision": "321c7bdd5b0979c97ac7",
-    "url": "/upcoming-music/static/js/main.321c7bdd.chunk.js"
+    "revision": "d30ba58e29ada7cd3452",
+    "url": "/upcoming-music/static/js/main.d30ba58e.chunk.js"
   },
   {
     "revision": "39f0c64e72f94b8fa48c",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/upcoming-music/static/js/runtime~main.e4beb3b1.js"
   },
   {
-    "revision": "08cde238d6da5f8d101b16e0d49434ee",
+    "revision": "7a96c6763692965e877746c0f5a5c15f",
     "url": "/upcoming-music/index.html"
   }
 ];
