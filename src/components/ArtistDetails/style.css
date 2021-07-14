@@ -4,7 +4,6 @@
   margin-bottom: 24px;
 }
 
-
 @media (max-width: 600px) {
   .artist-image {
     max-width: 50%;
@@ -18,8 +17,9 @@
 a {
   color: inherit;
   text-decoration: underline;
+  transition: color 150ms cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 a:hover {
-  font-style: italic;
+  color: #96f;
 }

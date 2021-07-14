@@ -1,15 +1,21 @@
-import './index.css';
-import React from 'react';
-import fetch from 'isomorphic-fetch';
+import "./index.css";
+import React from "react";
+import fetch from "isomorphic-fetch";
 
-import Form from './components/Form/';
-import ArtistDetails from './components/ArtistDetails/';
+import Form from "./components/Form/";
+import ArtistDetails from "./components/ArtistDetails/";
 
 class App extends React.Component {
   constructor() {
     super();
 
-    const prevSearchTerm = window.localStorage.getItem('searchTerm') || '';
+    let prevSearchTerm = window.localStorage.getItem("searchTerm") || "";
+    const params = new URL(document.location).searchParams;
+    const query = params.get("query");
+
+    if (query && query.length > 0) {
+      prevSearchTerm = query;
+    }
 
     this.state = {
       artistEvents: null,
@@ -17,12 +23,12 @@ class App extends React.Component {
       foundArtist: null,
       numUpcomingShows: null,
       searchTerm: prevSearchTerm,
-    }
+    };
   }
 
   handleChange = (e) => {
     this.setState({ searchTerm: e.target.value });
-  }
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -32,14 +38,25 @@ class App extends React.Component {
     }
 
     this.fetchResult();
-  }
+
+    const newUrl = window.location.href + "?query=" + this.state.searchTerm;
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  };
 
   async fetchResult() {
-    const res = await fetch(`https://rest.bandsintown.com/artists/${this.state.searchTerm}?app_id=asdf`);
+    const res = await fetch(
+      `https://rest.bandsintown.com/artists/${
+        this.state.searchTerm
+      }?app_id=asdf`
+    );
     const json = await res.json();
 
     if (Object.keys(json).length !== 0) {
-      const eventRes = await fetch(`https://rest.bandsintown.com/artists/${this.state.searchTerm}/events/?app_id=asdf`);
+      const eventRes = await fetch(
+        `https://rest.bandsintown.com/artists/${
+          this.state.searchTerm
+        }/events/?app_id=asdf`
+      );
       const eventJson = await eventRes.json();
 
       this.setState({
@@ -49,7 +66,7 @@ class App extends React.Component {
         numUpcomingShows: eventJson.length,
       });
 
-      window.localStorage.setItem('searchTerm', this.state.searchTerm);
+      window.localStorage.setItem("searchTerm", this.state.searchTerm);
     } else {
       this.setState({ foundArtist: false });
     }
@@ -64,7 +81,12 @@ class App extends React.Component {
   render() {
     let message;
     if (this.state.foundArtist === false) {
-      message = <p>Sorry, we couldn't find anyone by that name. Please search for someone else.</p>;
+      message = (
+        <p>
+          Sorry, we couldn't find anyone by that name. Please search for someone
+          else.
+        </p>
+      );
     }
 
     return (
@@ -73,11 +95,12 @@ class App extends React.Component {
         <Form
           submitForm={this.handleSubmit}
           searchTerm={this.state.searchTerm}
-          updateInput={this.handleChange} />
+          updateInput={this.handleChange}
+        />
         {this.state.foundArtist && <ArtistDetails data={this.state} />}
         {message}
       </React.Fragment>
-    )
+    );
   }
 }
 
