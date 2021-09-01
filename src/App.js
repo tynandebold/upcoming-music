@@ -1,21 +1,23 @@
-import "./index.css";
-import React from "react";
-import fetch from "isomorphic-fetch";
+import './index.css';
+import React from 'react';
+import fetch from 'isomorphic-fetch';
 
-import Form from "./components/Form/";
-import ArtistDetails from "./components/ArtistDetails/";
+import Form from './components/Form/';
+import ArtistDetails from './components/ArtistDetails/';
 
 class App extends React.Component {
   constructor() {
     super();
 
-    let prevSearchTerm = window.localStorage.getItem("searchTerm") || "";
+    let prevSearchTerm = window.localStorage.getItem('searchTerm') || '';
     const params = new URL(document.location).searchParams;
-    const query = params.get("query");
+    const query = params.get('query');
 
     if (query && query.length > 0) {
       prevSearchTerm = query;
     }
+
+    document.title = `${prevSearchTerm} - Upcoming Music`;
 
     this.state = {
       artistEvents: null,
@@ -25,6 +27,10 @@ class App extends React.Component {
       searchTerm: prevSearchTerm,
     };
   }
+
+  handleBack = () => {
+    window.location.reload();
+  };
 
   handleChange = (e) => {
     this.setState({ searchTerm: e.target.value });
@@ -39,8 +45,15 @@ class App extends React.Component {
 
     this.fetchResult();
 
-    const newUrl = window.location.href + "?query=" + this.state.searchTerm;
-    window.history.pushState({ path: newUrl }, "", newUrl);
+    const newUrl =
+      window.location.origin +
+      window.location.pathname +
+      '?query=' +
+      this.state.searchTerm;
+
+    window.history.pushState({ query: this.state.searchTerm }, '', newUrl);
+
+    document.title = `${this.state.searchTerm} - Upcoming Music`;
   };
 
   async fetchResult() {
@@ -66,7 +79,7 @@ class App extends React.Component {
         numUpcomingShows: eventJson.length,
       });
 
-      window.localStorage.setItem("searchTerm", this.state.searchTerm);
+      window.localStorage.setItem('searchTerm', this.state.searchTerm);
     } else {
       this.setState({ foundArtist: false });
     }
@@ -76,6 +89,10 @@ class App extends React.Component {
     if (this.state.searchTerm) {
       this.fetchResult();
     }
+
+    window.addEventListener('popstate', () => {
+      this.handleBack();
+    });
   }
 
   render() {
