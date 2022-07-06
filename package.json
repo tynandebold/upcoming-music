@@ -5,7 +5,7 @@
   "homepage": "https://tynandebold.github.io/upcoming-music",
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
-    "moment": "^2.22.2",
+    "moment": "^2.29.4",
     "react": "^16.4.1",
     "react-dom": "^16.14.0",
     "react-scripts": "^2.1.1"
